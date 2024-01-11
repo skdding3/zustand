@@ -1,5 +1,3 @@
-import React from "react";
-
 const AxiosQuery = () => {
   return <div>AxiosQuery</div>;
 };

@@ -1,5 +1,3 @@
-import React from "react";
-
 const ReactQuery = () => {
   return <div>ReactQuery</div>;
 };

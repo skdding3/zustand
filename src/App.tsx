@@ -1,4 +1,8 @@
 import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Layout from "./components/Layout";
+import AxiosQuery from "./pages/AxiosQuery";
+import ReactQuery from "./pages/ReactQuery";
 
 function App() {
   return (

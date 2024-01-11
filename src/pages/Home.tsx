@@ -1,5 +1,9 @@
-import React from "react";
+const Home = () => {
+  return (
+    <div>
+      <h2 className="text-4xl">Zustand + React Query</h2>
+    </div>
+  );
+};
 
-export default function Home() {
-  return <div>Home</div>;
-}
+export default Home;
