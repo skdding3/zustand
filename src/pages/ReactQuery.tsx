@@ -13,22 +13,36 @@ const fetchData = async (): Promise<AxiosResponse<UserData[]>> => {
 };
 
 const ReactQuery = () => {
-  const { isLoading, isFetching, data, isError, error } = useQuery<
+  const onSuccess = (data: any) => {
+    console.log("데이터 가져오기 후 사이드 이펙트 수행", data);
+  };
+
+  const onError = (error: any) => {
+    console.log("오류 발생 후 사이드 이펙트 수행", error);
+  };
+
+  const { isLoading, isFetching, data, isError, error, refetch } = useQuery<
     AxiosResponse<UserData[]>,
     Error
   >("get-name", fetchData, {
-    refetchInterval: 2000,
-    refetchIntervalInBackground: true,
+    onSuccess: onSuccess,
+    onError: onError,
   });
 
   console.log({ isLoading, isFetching });
 
-  if (isLoading) return <>Loading...</>;
+  if (isLoading || isFetching) return <>Loading...</>;
   if (isError || !data) return <>{error?.message || "Error"}</>;
 
   return (
     <>
       <div className="text-4xl font-bold">ReactQuery</div>
+      <button
+        onClick={() => refetch}
+        className="py-2 px-4 border bg-slate-100 rounded-md"
+      >
+        fetch data
+      </button>
       <ul className="list-disc p-4">
         {data.data.map((obj) => (
           <li key={obj.id}>
