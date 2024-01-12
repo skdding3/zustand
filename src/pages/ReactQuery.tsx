@@ -13,6 +13,7 @@ const fetchData = async (): Promise<AxiosResponse<UserData[]>> => {
 };
 
 const ReactQuery = () => {
+  // SIDE EFFECT
   const onSuccess = (data: any) => {
     console.log("데이터 가져오기 후 사이드 이펙트 수행", data);
   };
@@ -27,6 +28,7 @@ const ReactQuery = () => {
   >("get-name", fetchData, {
     onSuccess: onSuccess,
     onError: onError,
+    refetchOnMount: false, // 첫 구성요소 마운트 refetching
   });
 
   console.log({ isLoading, isFetching });
@@ -38,7 +40,7 @@ const ReactQuery = () => {
     <>
       <div className="text-4xl font-bold">ReactQuery</div>
       <button
-        onClick={() => refetch}
+        onClick={() => refetch()}
         className="py-2 px-4 border bg-slate-100 rounded-md"
       >
         fetch data

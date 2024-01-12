@@ -2,15 +2,23 @@ import { useBearStore } from "../store/store";
 
 const Zustand = () => {
   // STATE
-  const { bears, increaseBears, removeAllBears } = useBearStore();
+  const { bears, increaseBear, removeAllBears } = useBearStore();
 
   return (
     <>
-      <div className="flex flex-col">
-        <h2 className="text-4xl">{bears}</h2>
-        <button onClick={increaseBears}>Increase Bear</button>
-        <button onClick={removeAllBears}>remove All Bear</button>
-      </div>
+      <h2 className="text-4xl">{bears}</h2>
+      <button
+        className="py-2 px-4 border bg-slate-100 rounded-md"
+        onClick={() => increaseBear()}
+      >
+        Increase Bear
+      </button>
+      <button
+        className="py-2 px-4 border bg-slate-100 rounded-md"
+        onClick={() => removeAllBears()}
+      >
+        remove All Bear
+      </button>
     </>
   );
 };
