@@ -1,12 +1,14 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware"; // devTools
 
+// INTERFACE
 type BearStore = {
   bears: number;
   increaseBear: () => void;
   removeAllBears: () => void;
 };
 
+// STORE
 export const useBearStore = create<BearStore>()(
   devtools((set) => ({
     bears: 0,
