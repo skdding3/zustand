@@ -28,7 +28,8 @@ const ReactQuery = () => {
   >("get-name", fetchData, {
     onSuccess: onSuccess,
     onError: onError,
-    refetchOnMount: false, // 첫 구성요소 마운트 refetching
+    staleTime: 5000, // 지정된 fresh 상태를 통해 refetching이 되지 않는다.
+    // refetchOnMount: false, // 첫 구성요소 마운트 refetching
   });
 
   console.log({ isLoading, isFetching });
