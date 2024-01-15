@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+// INTERFACE
+interface UserData {
+  id: number;
+  name: string;
+}
+
 const AxiosQuery = () => {
   // STATE
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<UserData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
 

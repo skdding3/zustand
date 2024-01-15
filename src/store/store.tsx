@@ -22,6 +22,12 @@ interface DataStore {
 }
 
 // STORE
+export const useStore = create()((set, get) => ({
+  bears: 0,
+  increaseBear: () => set((state: any) => ({ bears: state.bears + 1 })),
+  removeAllBears: () => set({ bears: 0 }),
+}));
+
 export const useBearStore = create<BearStore>()(
   devtools((set) => ({
     bears: 0,

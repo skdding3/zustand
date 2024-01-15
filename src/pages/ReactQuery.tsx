@@ -9,7 +9,7 @@ interface UserData {
 
 // DATA FETCHING
 const fetchData = async (): Promise<AxiosResponse<UserData[]>> => {
-  return axios.get("https://jsonplaceholder.typicode.com/users");
+  return await axios.get("https://jsonplaceholder.typicode.com/users");
 };
 
 const ReactQuery = () => {
@@ -30,6 +30,7 @@ const ReactQuery = () => {
     onError: onError,
     staleTime: 5000, // 지정된 fresh 상태를 통해 refetching이 되지 않는다.
     // refetchOnMount: false, // 첫 구성요소 마운트 refetching
+    // refetchOnWindowFocus: false,
   });
 
   console.log({ isLoading, isFetching });

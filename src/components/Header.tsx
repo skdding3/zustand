@@ -9,7 +9,7 @@ const Header = React.memo(() => {
       <Link to="/react-query">React Query</Link>
       <Link to="/zustand">Zustand</Link>
       <Link to="/recoil">Recoil</Link>
-      <Link to="/stylex">StyleX</Link>
+      <Link to="/stylex">StyleX & TailwindCSS</Link>
     </nav>
   );
 });

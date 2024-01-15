@@ -12,8 +12,10 @@ const styles = stylex.create({
 const StyleX = () => {
   return (
     <div className="flex gap-5">
+      {/* stylex */}
       <button {...stylex.props(styles.button)}>Click</button>
-      <button className=" bg-[#808080] py-2 px-2 rounded">Click</button>
+      {/* tailwind */}
+      <button className=" bg-[#808080] py-2 px-2  rounded">Click</button>
     </div>
   );
 };
