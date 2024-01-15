@@ -1,8 +1,8 @@
-import stylex from "@stylexjs/stylex";
+import * as stylex from "@stylexjs/stylex";
 
-const style = stylex.create({
+const styles = stylex.create({
   button: {
-    backgroundColor: "slate",
+    backgroundColor: "gray",
     color: "black",
     padding: "8px 8px",
     borderRadius: "5px",
@@ -10,7 +10,12 @@ const style = stylex.create({
 });
 
 const StyleX = () => {
-  return <button className={style("button")}>Click</button>;
+  return (
+    <div className="flex gap-5">
+      <button {...stylex.props(styles.button)}>Click</button>
+      <button className=" bg-[#808080] py-2 px-2 rounded">Click</button>
+    </div>
+  );
 };
 
 export default StyleX;

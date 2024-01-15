@@ -1,13 +1,18 @@
-import { useEffect } from "react";
-import { useBearStore, useDataStore } from "../store/store";
+import { atom, useRecoilState } from "recoil";
 
-const Zustand = () => {
-  // STATE
-  const { bears, increaseBear, removeAllBears } = useBearStore();
+const bearCounterState = atom({
+  key: "bear",
+  default: 0,
+});
+
+const Recoil = () => {
+  const [bear, setBear] = useRecoilState(bearCounterState);
+  const increaseBear = () => setBear(bear + 1);
+  const removeAllBears = () => setBear(0);
 
   return (
     <>
-      <h2 className="text-4xl">{bears}</h2>
+      <h2 className="text-4xl">{bear}</h2>
       <button
         className="py-2 px-4 border bg-slate-100 rounded-md"
         onClick={() => increaseBear()}
@@ -24,4 +29,4 @@ const Zustand = () => {
   );
 };
 
-export default Zustand;
+export default Recoil;
