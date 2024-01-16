@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 import axios, { AxiosResponse } from "axios";
 
 // INTERFACE
@@ -12,6 +12,14 @@ const fetchData = async (): Promise<AxiosResponse<UserData[]>> => {
   return await axios.get("https://jsonplaceholder.typicode.com/users");
 };
 
+const postData = async (data: object) => {
+  return await axios.post("https://jsonplaceholder.typicode.com/posts", data);
+};
+
+const useAddPost = () => {
+  return useMutation(postData);
+};
+
 const ReactQuery = () => {
   // SIDE EFFECT
   const onSuccess = (data: any) => {
@@ -22,6 +30,7 @@ const ReactQuery = () => {
     console.log("오류 발생 후 사이드 이펙트 수행", error);
   };
 
+  // useQuery
   const { isLoading, isFetching, data, isError, error, refetch } = useQuery<
     AxiosResponse<UserData[]>,
     Error
@@ -32,6 +41,9 @@ const ReactQuery = () => {
     // refetchOnMount: false, // 첫 구성요소 마운트 refetching
     // refetchOnWindowFocus: false,
   });
+
+  // useMutation
+  const { mutate } = useAddPost();
 
   console.log({ isLoading, isFetching });
 

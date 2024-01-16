@@ -12,6 +12,10 @@ const fetchData = async (): Promise<AxiosResponse<UserData[]>> => {
   return await axios.get("https://jsonplaceholder.typicode.com/users");
 };
 
+const postData = async (data: object) => {
+  return await axios.post("https://jsonplaceholder.typicode.com/posts", data);
+};
+
 const ReactQueryExam = () => {
   const { isLoading, data, isError, error } = useQuery<
     AxiosResponse<UserData[]>,
