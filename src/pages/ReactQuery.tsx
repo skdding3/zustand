@@ -59,6 +59,7 @@ const ReactQuery = () => {
       >
         fetch data
       </button>
+      <button onClick={mutate}>mutate</button>
       <ul className="list-disc p-4">
         {data.data.map((obj) => (
           <li key={obj.id}>
